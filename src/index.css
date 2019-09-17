@@ -11,3 +11,53 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.wrapper {
+  /* width: 500px; */
+  margin: 10px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid black;
+  padding: 20px;
+}
+.input-area{
+    width: 97%;
+    border: 1px solid darkgray;
+    /* height: 80%; */
+    padding: 15px;
+}
+.user {
+  margin-bottom: 10px;
+}
+.user-name {
+  width: 70px;
+  display: inline-block;
+}
+.user-context {
+  width: 70px;
+  vertical-align: top;
+  display: inline-block;
+}
+.user-name-input{
+  display: initial;
+}
+.user-context-input{
+  display: initial;
+}
+.comment-field-button > button{
+  background-color: rgb(4, 108, 188);
+  border-radius: 10px;
+}
+
+.comment{
+  height: 70px;
+  border-bottom: 1px solid darkslateblue;
+}
+.comment-name{
+  color:brown;
+  display: inline-block;
+  margin-right: 10px
+}
+.comment-content{
+  display: inline-block;
+}
