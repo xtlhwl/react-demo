@@ -10,6 +10,7 @@ import React,{Component,Fragment} from 'react'
 import './style.css'
 import Xiaojiejielist from "./xiaojiejielist"
 
+
 class  Xiaojiejie extends Component{
     constructor(props){
         super(props)
@@ -23,12 +24,23 @@ class  Xiaojiejie extends Component{
             ]
         }
     }
+    // componentWillMount(){
+    //     console.log('DOM之前挂载')
+    // }
+    // componentDidMount(){
+    //     console.log('DOM组件挂载完成')
+    // }
 
     render(){
+        console.log('DOM开始渲染')
         return(
             <Fragment>
                     <div>
-                        <input className="input" value={ this.state.inputValue } onChange={ this.changeValue.bind(this) }/>
+                        <input className="input" 
+                            value={ this.state.inputValue } 
+                            onChange={ this.changeValue.bind(this) }
+                            ref = {(input) =>{this.inpu=input}}
+                            />
                         <button onClick={this.addList.bind(this)} >新增</button>
                     </div>
                     <ul>
@@ -50,9 +62,9 @@ class  Xiaojiejie extends Component{
                                         key={index+item}
                                         index={index}
                                         deleteList={this.deleteList.bind(this)}
-                                     />
+                                        />
                                 // </div>
-                               
+                                    // <Botton />
                                 
                             )
                             
@@ -65,17 +77,22 @@ class  Xiaojiejie extends Component{
     //改变inputValue
     changeValue(e){
         this.setState({
-            inputValue:e.target.value
+            inputValue: this.inpu.value
         })
            
     }
     //新增list项
     addList(){
         // if(){
-            this.setState({
-                list:[...this.state.list,this.state.inputValue],
-                inputValue:""
-            })
+            if(this.state.inputValue){
+                this.setState({
+                    list:[...this.state.list,this.state.inputValue],
+                    inputValue:""
+                })
+            }else{
+                return 
+            }
+            
         // }
     }
     //删除List项 
@@ -88,5 +105,17 @@ class  Xiaojiejie extends Component{
         })
     }
 }
+// class Botton extends Component {
+//     state = {  }
+//     render() { 
+//         return ( <div>
+//                 <span>
+//                     凉生，你好呀！
+//                 </span>
+//         </div> );
+//     }
+// }
+ 
+// export default Botton;
 
 export default Xiaojiejie

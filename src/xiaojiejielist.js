@@ -13,8 +13,21 @@ class Xiaojiejielist extends Component {
         super(props)
         this.deleteLi=this.deleteLi.bind(this)
     }
-
+    // componentWillUnmount(){
+    //     console.log('已卸载该组件')
+    // }
+    // componentWillMount(){
+    //     console.log('子s组件被调用')
+    // }
+    // shouldComponentUpdate(){
+    //     return false
+    // }
+    shouldComponentUpdate(){
+        console.log('阻止子组件更新')
+        return false
+    }
     render() { 
+        console.log('子组件渲染')
         return ( 
             <li onClick={this.deleteLi}>{this.props.content}</li>
          );
