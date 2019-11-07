@@ -11,11 +11,15 @@ class CommentList extends Component {
         <div>
             {
                 this.props.comments.map((comment,i) => 
-                < Comment Comment={comment} key={i} />
+                < Comment Comment={comment} cancel={this.cancel.bind(this)} key={i} />
                 )
             }
         </div>
          );
+    }
+    
+    cancel(i){
+        this.props.cancel(i)
     }
 }
  

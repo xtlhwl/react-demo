@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import './index.css'
+import 'antd/dist/antd.css'
+import {Input,Button} from 'antd'
+
 class CommentInput extends Component {
     constructor() {
         super()
         this.state = {
             username:'',
-            content:''
+            content:'' 
         }
+        const { TextArea } = Input;
     }
+
+    
     componentWillMount (){
         this._loadUsername()
     }
@@ -18,10 +24,11 @@ class CommentInput extends Component {
             <div className='user'>
                 <span className="user-name">用户名:</span>
                 <div className="user-name-input">
-                    <input  
+                    <Input  
                     onBlur={this.handleUsernameBlur.bind(this)}   // 输入框失去焦点
                     value={this.state.username}
                     onChange={this.handleUsernameChange.bind(this)}
+                    style={{width:'200px'}}
                     />
                 </div>
             </div>
@@ -37,7 +44,7 @@ class CommentInput extends Component {
                 </div>
             </div>
             <div className='comment-field-button'>
-                <button onClick={this.commentSubmit.bind(this)}>发布</button>
+                <Button type="primary" onClick={this.commentSubmit.bind(this)}>发布</Button>
             </div>
         </div>
          );
@@ -103,7 +110,7 @@ class CommentInput extends Component {
             this.setState({
                 content:'',
                 username:'',
-                dataTime: new Date()
+                dataTime: ''
         })
         }
         

@@ -11,9 +11,11 @@ class Comment extends Component {
                     <span className="comment-nam-span">{this.props.Comment.username}:</span>
                 </div>
                 <p className="comment-content">{this.props.Comment.content}</p>
+                <button className="cancel" onClick={this.props.cancel}>删除</button>
             </div>
          );
     }
+    
 }
  
 export default Comment;
